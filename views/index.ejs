@@ -1,0 +1,41 @@
+<!-- views/index.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Itens da Planilha</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <h1>Itens da Planilha</h1>
+  <table>
+    <thead>
+      <tr>
+        <% Object.keys(data[0]).forEach(key => { %>
+          <th><%= key %></th>
+        <% }); %>
+      </tr>
+    </thead>
+    <tbody>
+      <% data.forEach(item => { %>
+        <tr>
+          <% Object.values(item).forEach(value => { %>
+            <td><%= value %></td>
+          <% }); %>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+</body>
+</html>
